@@ -4,7 +4,7 @@
  *
  * This test group will run all test.
  *
- * @package  Environment.Test.Case
+ * @package  Indicadores.Test.Case
  */
 class AllIndicadoresTests extends PHPUnit_Framework_TestSuite {
 
