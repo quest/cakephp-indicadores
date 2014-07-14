@@ -1,0 +1,21 @@
+{
+	"name": "quest/cakephp-indicadores",
+	"type": "cakephp-indicadores",
+	"description": "Plugin de Indicadores Enconómicos para CakePHP",
+	"keywords": ["cakephp","indicadores","economia"],
+	"homepage": "http://victorsanmartin.com",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Victor San Martín",
+			"homepage": "http://twitter.com/questchile"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/quest/cakephp-indicadores/issues",
+		"source": "https://github.com/quest/cakephp-indicadores"
+	},
+	"require": {
+		"composer/installers": "*"
+	}
+}
