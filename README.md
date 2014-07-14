@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/quest/cakephp-indicadores.svg?branch=dev)](https://travis-ci.org/quest/cakephp-indicadores)
+[![Build Status](https://travis-ci.org/quest/cakephp-indicadores.svg?branch=master)](https://travis-ci.org/quest/cakephp-indicadores)
 
 # Plugin de Indicadores Económicos de Chile para CakePHP #
 
