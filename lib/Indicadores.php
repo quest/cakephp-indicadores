@@ -35,6 +35,7 @@ class Indicadores {
 
 /**
  * Se inicia la libreria, éste se conecta al servicio y guarda los valores para su posterior uso
+ *
  * @return boolean Una vez iniciada o ya iniciada la libreria
  */
 	public static function init() {
