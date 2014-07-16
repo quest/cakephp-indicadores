@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>cakephp-indicadores by quest</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>cakephp-indicadores</h1>
+          <h2>Plugin de Indicadores Económicos de Chile para CakePHP</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/quest/cakephp-indicadores/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/quest/cakephp-indicadores/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/quest/cakephp-indicadores" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="plugin-de-indicadores-econ%C3%B3micos-de-chile-para-cakephp" class="anchor" href="#plugin-de-indicadores-econ%C3%B3micos-de-chile-para-cakephp"><span class="octicon octicon-link"></span></a>Plugin de Indicadores Económicos de Chile para CakePHP</h1>
+
+<p>Con este Plugin puedes obtener información para enriquecer su sitio web o tienda virtual, agregándole indicadores económicos,
+santoral o honomástico, valor de las divisas más importantes, indicadores de la bolsa y restricción automotriz.</p>
+
+<p>La información es obtenida de <a href="http://indicadoresdeldia.cl/pages/code/">http://indicadoresdeldia.cl</a>.
+<strong>Indicadores del Día</strong> provee diariamente información de indicadores económicos actualizados y de manera gratuita, proporcionando ésta
+por medio de su sitio web y como webservice para desarrolladores.</p>
+
+<h2>
+<a name="requerimientos" class="anchor" href="#requerimientos"><span class="octicon octicon-link"></span></a>Requerimientos</h2>
+
+<ul>
+<li>PHP version: PHP 5.2+</li>
+<li>CakePHP version: 2.x Stable</li>
+</ul><h2>
+<a name="instalaci%C3%B3n" class="anchor" href="#instalaci%C3%B3n"><span class="octicon octicon-link"></span></a>Instalación</h2>
+
+<h3>
+<a name="usando-composer" class="anchor" href="#usando-composer"><span class="octicon octicon-link"></span></a>Usando Composer</h3>
+
+<p>Agregar al archivo <code>composer.json</code> de tu proyecto lo siguiente, en caso de no tenerlo deberás crearlo:</p>
+
+<pre lang="composer"><code>{
+    "require": {
+        "quest/cakephp-indicadores": "master"
+    }
+}
+</code></pre>
+
+<h3>
+<a name="manual" class="anchor" href="#manual"><span class="octicon octicon-link"></span></a>Manual</h3>
+
+<ul>
+<li>Descargar: <a href="http://github.com/quest/cakephp-indicadores/zipball/master">http://github.com/quest/cakephp-indicadores/zipball/master</a>
+</li>
+<li>Descomprime el archivo</li>
+<li>Copia el directorio a <code>app/Plugin</code>
+</li>
+<li>Renombra la carpeta que copiaste a <code>Indicadores</code>
+</li>
+</ul><h3>
+<a name="git-submodule" class="anchor" href="#git-submodule"><span class="octicon octicon-link"></span></a>GIT Submodule</h3>
+
+<p>En el directorio de tu aplicación:</p>
+
+<div class="highlight highlight-bash"><pre>git submodule add -b master git://github.com/quest/cakephp-indicadores.git Plugin/Indicadores
+git submodule init
+git submodule update
+</pre></div>
+
+<h3>
+<a name="git-clone" class="anchor" href="#git-clone"><span class="octicon octicon-link"></span></a>GIT Clone</h3>
+
+<p>En tu carpeta <code>Plugin</code>:</p>
+
+<div class="highlight highlight-bash"><pre>git clone -b master git://github.com/quest/cakephp-indicadores.git Indicadores
+</pre></div>
+
+<h2>
+<a name="habilitar-plugin" class="anchor" href="#habilitar-plugin"><span class="octicon octicon-link"></span></a>Habilitar Plugin</h2>
+
+<p>Para habilitar el plugin escribe lo siguiente en tu archivo <code>app/Config/bootstrap.php</code>:</p>
+
+<div class="highlight highlight-php"><pre><span class="nx">CakePlugin</span><span class="o">::</span><span class="na">load</span><span class="p">(</span><span class="s1">'Indicadores'</span><span class="p">);</span>
+</pre></div>
+
+<p>O puedes habilitar todos tus Plugins:</p>
+
+<div class="highlight highlight-php"><pre><span class="nx">CakePlugin</span><span class="o">::</span><span class="na">loadAll</span><span class="p">();</span>
+</pre></div>
+
+<h2>
+<a name="uso" class="anchor" href="#uso"><span class="octicon octicon-link"></span></a>Uso</h2>
+
+<p>Lo puede ocupar en el Controlador como Componente y en la Vista como Helper, para esto debes activarlo en tu <code>app/Controller/AppController.php</code> usando <code>$helpers</code> o <code>$components</code></p>
+
+<div class="highlight highlight-php"><pre><span class="k">public</span> <span class="nv">$helpers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Indicadores.Indicadores'</span><span class="p">);</span>
+<span class="k">public</span> <span class="nv">$components</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Indicadores.Indicadores'</span><span class="p">);</span>
+</pre></div>
+
+<h3>
+<a name="m%C3%A9todos" class="anchor" href="#m%C3%A9todos"><span class="octicon octicon-link"></span></a>Métodos</h3>
+
+<h4>
+<a name="indicadoresreadstring-key" class="anchor" href="#indicadoresreadstring-key"><span class="octicon octicon-link"></span></a>Indicadores::read(string $key)</h4>
+
+<p>Con este método puedes obtener el valor de los indicadores económicos disponibles:</p>
+
+<p>En la vista:</p>
+
+<div class="highlight highlight-php"><pre><span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">Indicadores</span><span class="o">-&gt;</span><span class="na">read</span><span class="p">(</span><span class="s1">'moneda.dolar'</span><span class="p">);</span>
+</pre></div>
+
+<p>En el controlador:</p>
+
+<div class="highlight highlight-php"><pre><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">Indicadores</span><span class="o">-&gt;</span><span class="na">read</span><span class="p">(</span><span class="s1">'moneda.dolar'</span><span class="p">);</span>
+</pre></div>
+
+<p>Si $key viene vacío, devuelve en un arreglo todos los valores disponibles.</p>
+
+<p>Los valores que puede tener $key son:</p>
+
+<ul>
+<li>moneda.dolar</li>
+<li>moneda.euro</li>
+<li>indicador.uf</li>
+<li>indicador.ipc</li>
+<li>indicador.utm</li>
+<li>indicador.imacec</li>
+<li>santoral.ayer</li>
+<li>santoral.hoy</li>
+<li>santoral.maniana</li>
+<li>bolsa.igpa</li>
+<li>bolsa.ipsa</li>
+<li>bolsa.banca</li>
+<li>bolsa.utilities</li>
+<li>bolsa.commodities</li>
+<li>bolsa.consumo</li>
+<li>bolsa.retail</li>
+</ul><h4>
+<a name="indicadorescheckstring-key" class="anchor" href="#indicadorescheckstring-key"><span class="octicon octicon-link"></span></a>Indicadores::check(string $key)</h4>
+
+<p>Para validar si un indicador existe, está disponible el método <code>check()</code>, devuelve <code>true</code> si existe el indicador, en caso contrario retorna <code>false</code>.</p>
+
+<p>En la vista:</p>
+
+<div class="highlight highlight-php"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">Indicadores</span><span class="o">-&gt;</span><span class="na">check</span><span class="p">(</span><span class="s1">'moneda.dolar'</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">//algo</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>En el controlador:</p>
+
+<div class="highlight highlight-php"><pre><span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">Indicadores</span><span class="o">-&gt;</span><span class="na">check</span><span class="p">(</span><span class="s1">'moneda.dolar'</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">//algo</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>Cache</li>
+<li>Modelo</li>
+</ul><h2>
+<a name="support" class="anchor" href="#support"><span class="octicon octicon-link"></span></a>Support</h2>
+
+<p>Para reportar un bug o solicitar una mejores, ingrea al <a href="https://github.com/quest/cakephp-environment/issues">Issue Tracker</a>.</p>
+
+<h2>
+<a name="contribuye-con-este-plugin" class="anchor" href="#contribuye-con-este-plugin"><span class="octicon octicon-link"></span></a>Contribuye con este Plugin</h2>
+
+<p>Sientete libre de contribuir con el plugin para mejorar con nuevos issues, peticiones de mejoras, test de unidad y arreglo de errores o nuevas mejoras.</p>
+
+<p>Toda ayuda o mejora es bienvenida :)</p>
+
+<h2>
+<a name="licencia" class="anchor" href="#licencia"><span class="octicon octicon-link"></span></a>Licencia</h2>
+
+<p>Copyright 2014, <a href="http://twitter.com/questchile">Victor San Martín</a></p>
+
+<p>Proyecto licenciado bajo <a href="http://www.opensource.org/licenses/mit-license.php">The MIT License</a></p>
+
+<p>La redistribución de los archivos deben conservar el aviso de copyright anterior.</p>
+        </section>
+
+        <footer>
+          cakephp-indicadores is maintained by <a href="https://github.com/quest">quest</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
